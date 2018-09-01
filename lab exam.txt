@@ -1,0 +1,56 @@
+CREATE TABLE employee(
+    id varchar(20),
+    name varchar(20),
+    address varchar(20),
+    phone_no varchar(20),
+    man_id varchar(20)
+);
+
+CREATE TABLE manager(
+    mn_id varchar(20),
+    mn_name varchar(20),
+    dept_id varchar(20)
+);
+
+CREATE TABLE department(
+    dept_id varchar(20),
+    dept_name varchar(20),
+    dept_building varchar(20),
+    no_of_employee varchar(20)
+);
+
+
+INSERT INTO department(dept_id, dept_name, dept_building, no_of_employee)
+VALUES
+('1','cse','wazed','20'),
+('2','fish','wazed','12'),
+('3','ag','wazed','10'),
+('4','eee','wazed','15'),
+('5','ese','wazed','09');
+
+INSERT INTO employee(id, name, address, phone_no, man_id)
+VALUES
+('1','ab','dinajpur','052151526','1'),
+('2','cd','sripur','052151527','2'),
+('3','ef','joypur','052151528','3'),
+('4','gh','faridppur','052151529','4'),
+('5','ij','rangprpur','052151522','5');
+
+INSERT INTO manager(mn_id, mn_name, dept_id) 
+VALUES 
+('1','po','1'),
+('2','lo','2'),
+('3','ko','3'),
+('4','mo','4'),
+('5','go','5');
+
+
+ALTER TABLE employee CHANGE phone_no contact_no varchar(20);
+
+CREATE TABLE abir AS SELECT * FROM employee;
+
+ALTER TABLE department DROP COLUMN no_of_employee
+
+UPDATE manager SET mn_name=' ';
+
+DROP TABLE employee;

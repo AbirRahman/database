@@ -1,0 +1,86 @@
+project values
+
+INSERT INTO login(log_id, log_role_id,log_username, log_password, user_id, user_name)
+VALUES
+('1','10','jack','jack123','1','abir'),
+('2','11','mac','mac123','2','rahman'),
+('3','12','vac','vac123','3','biswas'),
+('4','13','tac','tac123','4','shuvo'),
+('5','14','dac','dac123','5','abir'),
+('6','15','sac','sac123','6','nibir'),
+('7','16','kak','kak123','7','rudhir');
+
+
+INSERT INTO users(user_id, user_name, user_mobile, user_email, user_address)
+VALUES 
+('1','abir','01711908567','ab0072gmail.com','shalbon rangpur'),
+('2','rahman','01711869567','yo072gmail.com','dhaka'),
+('3','biswas','01711906785','a2gmail.com','khulna'),
+('4','shuvo','01711987567','j72gmail.com','shalbon rangpur'),
+('5','abir','01711908345','yoyogmail.com','dhaka'),
+('6','nibir','01714558567','abgmail.com','pabna'),
+('7','rudhir','01711906667','ab02gmail.com','nator');
+
+INSERT INTO medicine(mdcn_id, mdcn_name, mdcn_cost, mdcn_type, mdcn_doc, mdcn_company)
+VALUES
+('1','napa.50','10/-','tablet','fever','beximco pharma'),
+('2','aspirin.50','50/-','tablet','fever','Reneta
+Pharma and Instrument'),
+('3','anastrozol','70/-','sirap','fever','Squre
+Pharma'),
+('4','flajil.60','67/-','tablet','fever','olivia
+pharma'),
+('5','hipo.60','100/-','sirap','fever','The IBN SINA
+Pharmaceutical'),
+('6','frogul.50','120/-','tablet','fever','Jayson Pharmaceutical
+pharma'),
+('7','indever.q0','180/-','tablet','fever','Kumudini Pharma
+Pharmaceutical');
+
+
+INSERT INTO stocks(stk_id, stk_name, stk_doc, stk_item, stk_type, mdcn_id) 
+VALUES
+('1','napa.50','well','500 piece','tablet','1'),
+('2','aspirin.50','well','200 piece','tablet','2'),
+('3','anastrozol','well','110 piece','sirap','3'),
+('4','flajil.60','well','500 piece','tablet','4'),
+('5','hipo.60','well','50 piece','sirap','5'),
+('6','frogul.50','well','25 piece','tablet','6'),
+('7','indever.q0','well','50 piece','tablet','7');
+
+
+INSERT INTO role(role_id, role_name, role_doc, user_id) 
+VALUES
+('1','doctor','specialist','1'),
+('2','doctor','specialist','2'),
+('3','patient','admitted','3'),
+('4','parient','admitted','4'),
+('5','doctor','professor','5'),
+('6','doctor','specialist','6'),
+('7','doctor','professor','7');
+
+
+INSERT INTO permission(per_id, per_name, per_module, per_role_id, user_id, role_id) 
+VALUES
+('1','operation','active','null','1','1'),
+('2','operation','active','null','2','2'),
+('3','operation','deactive','positive','3','3'),
+('4','operation','deactive','positive','4','4'),
+('5','operation','deactive','positive','5','5'),
+('6','operation','active','null','6','6'),
+('7','operation','deactive','positive','7','7');
+
+
+
+INSERT INTO medicine_shop(ms_id, ms_name, ms_doc, ms_type, ms_add, com_id, stk_id)
+VALUES
+('101','napa.50','fever','tablet','beximco pharma','167','1'),
+('102','aspirin.50','fever','tablet','reneta pharma and Instrument','168','3'),
+('103','anastrozol','fever','sirap','squre pharma','169','2'),
+('104','flajil.60','fever','tablet','olivia pharma','170','4'),
+('105','hippo.60','fever','sirap','The IBN SINA
+Pharmaceutical','171','5'),
+('106','frogul.60','fever','tablet','Jayson Pharmaceutica
+pharma','172','6'),
+('107','indever.q0','fever','sirap','Kumudini Pharma
+Pharmaceutical','173','7');
