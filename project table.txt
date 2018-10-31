@@ -1,4 +1,101 @@
-project values
+project query:
+
+project database
+CREATE TABLE users(
+    user_id varchar(20),
+    user_name varchar(20),
+    user_mobile varchar(20),
+    user_email varchar(20),
+    user_address varchar(20),
+    PRIMARY KEY (user_id, user_name)
+);
+
+
+
+CREATE TABLE role(
+    role_id varchar(20),
+    role_name varchar(20),
+    role_doc varchar(20),
+    user_id varchar(20),
+    PRIMARY KEY (role_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+
+CREATE TABLE permission(
+    per_id varchar(20),
+    per_name varchar(20),
+    per_module varchar(20),
+    per_role_id varchar(20),
+    user_id varchar(20),
+    role_id varchar(20),
+    PRIMARY KEY (per_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (role_id) REFERENCES role(role_id)
+);
+
+
+
+CREATE TABLE medicine(
+    mdcn_id varchar(20),
+    mdcn_name varchar(20),
+    mdcn_cost varchar(20),
+    mdcn_type varchar(20),
+    mdcn_doc varchar(20),
+    mdcn_company varchar(20),
+    PRIMARY KEY(mdcn_id)
+);
+
+
+CREATE TABLE company(
+    com_id varchar(20),
+    com_name varchar(20),
+    com_type varchar(20),
+    com_address varchar(20),
+    PRIMARY KEY(com_id)
+);
+
+
+CREATE TABLE stocks(
+ 	stk_id varchar(20), 
+ 	stk_name varchar(20), 
+ 	stk_doc varchar(20), 
+ 	stk_item varchar(20), 
+ 	stk_type varcher(20),  
+ 	mdcn_id varchar(20), 
+ 	PRIMARY KEY(stk_id), 
+ 	FOREIGN KEY(mdcn_id) REFERENCES medicine(mdcn_id)
+ );
+
+
+
+CREATE TABLE medicine_shop(
+    ms_id varchar(20),
+    ms_name varchar(20),
+    ms_doc varchar(20),
+    ms_type varchar(20),
+    ms_add varchar(20),
+    com_id varchar(20),
+    stk_id varchar(20),
+    PRIMARY KEY (ms_id),
+    FOREIGN KEY(com_id) REFERENCES company(com_id),
+    FOREIGN KEY(stk_id) REFERENCES stocks(stk_id)
+); 
+
+
+CREATE TABLE login(
+    log_id varchar(20),
+    log_role_id varchar(20),
+    log_username varchar(20),
+    log_password varchar(20),
+    user_id varchar(20),
+    user_name varchar(20),
+    PRIMARY KEY(log_id),
+    FOREIGN KEY(user_id,user_name) REFERENCES users(user_id,user_name)
+);
+
+
+project values:
 
 INSERT INTO login(log_id, log_role_id,log_username, log_password, user_id, user_name)
 VALUES
@@ -84,16 +181,3 @@ Pharmaceutical','171','5'),
 pharma','172','6'),
 ('107','indever.q0','fever','sirap','Kumudini Pharma
 Pharmaceutical','173','7');
-
-INSERT INTO company(com_id, com_name, com_type, com_address)
-VALUES
-('167','beximco pharma','pharma','dhaka'),
-('168','reneta pharma and Instrument','pharma & Instument','dhaka'),
-('169','squre pharma','pharma','khulna'),
-('170','olivia pharma','pharma','sylet'),
-('171','The IBN SINA
-Pharmaceutical','pharmaceutical','khulna'),
-('172','Jayson Pharmaceutica
-pharma','pharmaceutical','sylet'),
-('173','Kumudini Pharma
-Pharmaceutical','pharmaceutical','pabna');
